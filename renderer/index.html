@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; style-src 'self'; script-src 'self'">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kitsune Launcher</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Fondo: se escala siempre a la ventana (16:9 de referencia 1920×1080) -->
+  <div class="bg" aria-hidden="true">
+    <img class="bg-blur" src="../assets/bg.webp" alt="">
+    <img class="bg-main" src="../assets/bg.webp" alt="">
+    <div class="bg-shade"></div>
+  </div>
+
+  <main class="app">
+    <header class="top">
+      <h1>Kitsune Launcher</h1>
+      <p class="sub">Launcher oficial de Red Kitsune's</p>
+    </header>
+
+    <section class="panel left">
+      <h2>Versión</h2>
+      <div class="dropdown">
+        <button id="versionBtn" class="dd-btn" type="button" aria-haspopup="listbox" aria-expanded="false">
+          <span id="versionLabel">Cargando versiones…</span><span class="caret" aria-hidden="true">▾</span>
+        </button>
+        <div id="versionMenu" class="dd-menu" hidden>
+          <input id="filter" type="search" placeholder="Buscar versión (ej. 1.21)" aria-label="Buscar versión">
+          <ul id="versionList" class="vlist" role="listbox" aria-label="Versiones de Minecraft"></ul>
+        </div>
+      </div>
+      <p id="versionState" class="hint"></p>
+
+      <details class="fold">
+        <summary>Mods de rendimiento</summary>
+        <div id="mods" class="mods"></div>
+      </details>
+    </section>
+
+    <section class="panel right">
+      <h2>Cuenta</h2>
+      <p id="accountState" class="hint">Sin sesión</p>
+      <div class="row">
+        <button id="loginBtn" class="small" type="button">Iniciar sesión con Microsoft</button>
+        <button id="logoutBtn" class="small" type="button" hidden>Cerrar sesión</button>
+      </div>
+      <p id="codeBox" class="hint" hidden></p>
+
+      <h2>Pantalla del juego</h2>
+      <div class="row">
+        <label><input type="radio" name="mode" value="default" checked> Predeterminado</label>
+        <label><input type="radio" name="mode" value="windowed"> Ventana</label>
+        <label><input type="radio" name="mode" value="fullscreen"> Pantalla completa</label>
+      </div>
+      <div id="winOpts" class="row" hidden>
+        <select id="preset" aria-label="Resolución"></select>
+        <span id="custom" class="row" hidden>
+          <input id="w" type="number" min="640" max="7680" value="1280" aria-label="Ancho">
+          <span>×</span>
+          <input id="h" type="number" min="360" max="4320" value="720" aria-label="Alto">
+        </span>
+      </div>
+
+      <h2>Memoria RAM: <span id="ramVal">4</span> GB</h2>
+      <input id="ram" type="range" min="2" max="8" step="1" value="4" aria-label="RAM en GB">
+    </section>
+
+    <footer class="actions">
+      <button id="play" class="primary" disabled>Jugar</button>
+      <progress id="bar" max="100" value="0" hidden></progress>
+      <pre id="log" class="log" aria-live="polite"></pre>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

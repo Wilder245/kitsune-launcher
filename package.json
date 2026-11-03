@@ -1,0 +1,20 @@
+{
+  "name": "kitsune-launcher",
+  "version": "0.1.0",
+  "description": "Launcher personalizado de Minecraft Java con mods de rendimiento (Kitsune Launcher)",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^45.2.1"
+  },
+  "overrides": {
+    "@xmcl/unzip": "2.1.2",
+    "@xmcl/yauzl": "2.10.0"
+  },
+  "dependencies": {
+    "@xmcl/core": "^2.16.3"
+  }
+}
